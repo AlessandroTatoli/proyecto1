@@ -1,7 +1,7 @@
 Proyecto 1 Administracion de Bases de Datos
 
 Integrantes: 
-Gilberto Pucciarelli CI: 
+Gilberto Pucciarelli CI: 27346026
 Arturo Linares CI:
 Vito Tatoli CI: 26454499
 
