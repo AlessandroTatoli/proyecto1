@@ -39,8 +39,9 @@ def main():
 
     while(cpersonas>0):
         
+        telefono = int(numpy.random.uniform(0,2))
         nsexo = int(numpy.random.uniform(0,2))
-        edad = int(numpy.random.uniform(13,76)) #Desde 13 años hasta 75 años
+        edad = int(numpy.random.uniform(13,76)) #Desde 13 años hasta 75 anos
         cedula = int(numpy.random.uniform(5000000,50000001))
 
         if nsexo == 0:
@@ -48,10 +49,6 @@ def main():
         else:
             sexo = "Femenino"
     
-        # GENERAR DATOS DE USUARIO CON TELEFONO
-
-        telefono = int(numpy.random.uniform(0,2))
-        
         if telefono == 1:
 
             fechaE = datetime.datetime.now().replace(hour=0,minute=0,second=0)
@@ -65,7 +62,6 @@ def main():
             hentrada = fechaE
             hsalida = fechaE
 
-            # RUTA DEL USUARIO CON TELEFONO POR LAS TIENDAS
             while(ctiendas>0):
                 
                 hentrada = hsalida + datetime.timedelta(minutes=int(numpy.random.uniform(5,31)))
@@ -87,7 +83,6 @@ def main():
                 tiendas.append(objeto)
                 ctiendas-=1
 
-            # GENERAR SI EL USUARIO UTILIZO ALGUNA MESA
             tmesa = 0
             rmesa = int(numpy.random.uniform(0,2))
             
@@ -105,15 +100,14 @@ def main():
             
             fechaS = hsalida + datetime.timedelta(minutes=(tmesa + int(numpy.random.uniform(30,61))))
 
-        # GENERAR DATOS DE USUARIO SIN TELEFONO
         if telefono == 0:
             
             macAddress = None
             tiendas = None
             fechaE = None
             fechaS = None
-            sensore = None
-            sensors = None
+            sensore = -1
+            sensors = -1
             tmesa = None
 
             tiendas = []
@@ -153,13 +147,13 @@ def main():
                 print(payload)
 
         payload = {
-            "sensore": str(sensore),
+            "sensore": int(sensore),
             "horae": str(fechaE),
             "macaddress": str(macAddress),
             "sexo": str(sexo),
             "edad": int(edad),
             "tiendas": tiendas,
-            "sensors": str(sensors),
+            "sensors": int(sensors),
             "horas": str(fechaS),
             "cedula": int(cedula),
         }
