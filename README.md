@@ -2,7 +2,7 @@ Proyecto 1 Administracion de Bases de Datos
 
 Integrantes: 
 Gilberto Pucciarelli CI: 27346026
-Arturo Linares CI:
+Arturo Linares CI: 25386251
 Vito Tatoli CI: 26454499
 
 Publicador (archivo proyecto1pub.py)
