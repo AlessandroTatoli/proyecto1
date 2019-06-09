@@ -108,7 +108,7 @@ def main():
             fechaS = None
             sensore = -1
             sensors = -1
-            tmesa = None
+            tmesa = -1
 
             tiendas = []
             ctiendas = int(numpy.random.uniform(0,6))

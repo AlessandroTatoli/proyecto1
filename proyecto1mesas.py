@@ -14,6 +14,12 @@ def doQuery(a):
     cur.execute(sql, (a["macaddress"], a["tiempo"], a["mesa"]))
     conn.commit()
 
+    # ACTUALIZAR MESA NO DISPONIBLE
+    cur = conn.cursor()
+    sql = 'UPDATE mesas SET disponibilidad = false WHERE sensorm = %s;'
+    cur.execute(sql, (a["mesa"]))
+    conn.commit()
+
 def on_connect(client, userdata, flags, rc):
 
     print('\n Bienvenido al apartado de Feria del Centro Comercial Inteligente Sambil')
