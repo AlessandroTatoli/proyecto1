@@ -7,6 +7,12 @@ import json
 conn = psycopg2.connect(host = 'localhost', user = 'postgres', password = '3098', dbname = 'proyecto1') # CONECTARSE A LA BASE DE DATOS
 
 def doQuery(a):
+
+    # ACTUALIZAR MESA NO DISPONIBLE
+    cur = conn.cursor()
+    sql = 'UPDATE mesas SET disponibilidad = false WHERE mesa = %s;'
+    cur.execute(sql, (a["mesa"]))
+    conn.commit()
     
     # INSERTAR EN TABLA MESAS_FERIA 
     cur = conn.cursor()
@@ -14,11 +20,7 @@ def doQuery(a):
     cur.execute(sql, (a["macaddress"], a["tiempo"], a["mesa"]))
     conn.commit()
 
-    # ACTUALIZAR MESA NO DISPONIBLE
-    cur = conn.cursor()
-    sql = 'UPDATE mesas SET disponibilidad = false WHERE sensorm = %s;'
-    cur.execute(sql, (a["mesa"]))
-    conn.commit()
+
 
 def on_connect(client, userdata, flags, rc):
 
