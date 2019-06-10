@@ -35,7 +35,7 @@ def main():
     client = mqtt.Client("sambil", False)
     client.qos = 0
     client.connect(host='localhost')
-    cpersonas = 5
+    cpersonas = int(numpy.random.uniform(30,41))
 
     while(cpersonas>0):
         
